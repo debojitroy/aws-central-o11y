@@ -13,10 +13,12 @@ provider "aws" {
   region = var.region
 }
 
+# Create the OAM Sink in the Central Monitoring Account
 resource "aws_oam_sink" "central_monitoring_account_oam_sink" {
   name = "CentralSink"
 }
 
+# Create the OAM Sink Policy in the Central Monitoring Account
 resource "aws_oam_sink_policy" "central_monitoring_account_oam_sink_policy" {
   sink_identifier = aws_oam_sink.central_monitoring_account_oam_sink.id
 
